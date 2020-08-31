@@ -7,6 +7,9 @@
           "text": "adeus"
         },
         {
+          "text": "ajudou demais, tchau"
+        },
+        {
           "text": "até mais"
         },
         {
@@ -16,7 +19,10 @@
           "text": "blza, obrigada"
         },
         {
-          "text": "deixa pra lá..."
+          "text": "deixa pra lá"
+        },
+        {
+          "text": "fui"
         },
         {
           "text": "maravilha! Ajudou d+"
@@ -46,6 +52,9 @@
           "text": "thanks!"
         },
         {
+          "text": "tudo bem"
+        },
+        {
           "text": "valeu!"
         },
         {
@@ -62,9 +71,6 @@
       "examples": [
         {
           "text": "Estou com pouco dinheiro no bolso e gosto de ter uns trocados, onde fica o caixa eletrônico mais próximo?"
-        },
-        {
-          "text": "na verdade falei q preciso sacar 200!"
         },
         {
           "text": "onde acho um ATM?"
@@ -91,6 +97,12 @@
           "text": "preciso de dinheiro urgente!"
         },
         {
+          "text": "preciso de grana"
+        },
+        {
+          "text": "preciso sacar"
+        },
+        {
           "text": "preciso sacar dinheiro"
         },
         {
@@ -115,10 +127,13 @@
           "text": "tem algum local perto pra eu pegar um dindin"
         },
         {
-          "text": "tem algum local próximo de VILA PLANALTO?"
+          "text": "tem algum local próximo pra saque?"
         },
         {
-          "text": "to tentando achar um caixa qualquer pra sacar  200 reais, consegue ajduar?"
+          "text": "to num aperto e preciso de dindin urgente!"
+        },
+        {
+          "text": "to tentando achar um caixa qualquer pra sacar dinheiro"
         },
         {
           "text": "tu consegue me ajudar a encontrar um ATM?"
@@ -459,6 +474,26 @@
       "previous_sibling": "Bem-vindo"
     },
     {
+      "type": "standard",
+      "title": "Clear_content",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<?context.clear()?> "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1598816605252",
+      "conditions": "true",
+      "dialog_node": "node_4_1598826250962"
+    },
+    {
       "type": "frame",
       "title": "Saque",
       "actions": [
@@ -504,7 +539,7 @@
           {
             "values": [
               {
-                "text": "O caixa mais próximo esta localizado no $retorno.local, na $retorno.rua, número $retorno.numero, com o cep $retorno.cep. $retorno.promocao <?context.clear()?>"
+                "text": "O caixa mais próximo esta localizado no $retorno.local, na $retorno.rua, número $retorno.numero, com o cep $retorno.cep. $retorno.promocao"
               }
             ],
             "response_type": "text",
@@ -513,8 +548,14 @@
         ]
       },
       "parent": "node_6_1598816605252",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_4_1598826250962"
+      },
       "conditions": "$retorno && !$retorno.err",
-      "dialog_node": "response_6_1598817150090"
+      "dialog_node": "response_6_1598817150090",
+      "previous_sibling": "node_4_1598826250962"
     },
     {
       "type": "slot",
